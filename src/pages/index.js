@@ -12,24 +12,21 @@ const PostTitle = styled.h4 `
   margin-right: 20px;
 `
 
-
 export default function Home({data}) {
   return (
-    <>
-      <Layout>     
-        <PostsContainer>
-          {data.allMarkdownRemark.edges.map(({node}, index) => {
-            return (
-              <div key={index}>
-                <Link to={node.fields.slug}><PostTitle>{node.frontmatter.title}</PostTitle></Link>
-                <h5>{node.frontmatter.date}</h5>
-                <p>{node.excerpt}</p>
-              </div>
-            )
-          })}
-        </PostsContainer>
-      </Layout>
-    </>
+    <Layout>
+      <PostsContainer>
+        {data.allMarkdownRemark.edges.map(({node}, index) => {
+          return (
+            <div key={index}>
+              <Link to={node.fields.slug}><PostTitle>{node.frontmatter.title}</PostTitle></Link>
+              <h5>{node.frontmatter.date}</h5>
+              <p>{node.excerpt}</p>
+            </div>
+          )
+        })}
+      </PostsContainer>
+    </Layout>
   )
 }
 
