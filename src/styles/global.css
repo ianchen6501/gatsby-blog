@@ -1,18 +1,37 @@
-html, body {
-	margin: 0px;
-	border: 0px;
-	padding: 0px;
-	outline: 0px;
-	height: 100vh;
-	min-height: 100vh;
+* {
+  /* border: 1px solid black; */
+  color: black;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  outline: 0px;
+  height: 100%;
+}
+
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
 }
 
 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
-h1, h2, h3, h4, h5 {
-	display: inline-block;
-	margin-bottom: 0px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+img {
+  margin-bottom: 0px;
 }

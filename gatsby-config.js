@@ -16,9 +16,16 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src`
+        path: `${__dirname}/src`,
       }
     },
     "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `backgrounds`,
+        path: `${__dirname}/src/background`, 
+      },
+    }
   ],
 }
