@@ -1,10 +1,10 @@
-import { graphql } from "gatsby"
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import { Link } from "gatsby"
 import dinfongImg from "../image/dinfong2.png"
 import hittheroadImg from "../image/hittheroad3.png"
+//import { graphql } from "gatsby"
 
 const Wrapper = styled.div `
   position: relative;

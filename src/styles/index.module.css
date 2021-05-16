@@ -1,4 +1,4 @@
-.IntroContainer {
+.introContainer {
   position: relative;
   display: flex;
   padding-top: 30px;
@@ -6,4 +6,30 @@
   width: 80%;
   float: right;
   z-index: -1;
+}
+
+.introText {
+  width: 40%;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+.paragraph {
+  line-height: 40px;
+}
+
+.devideLine {
+  height: 80%;
+  width: 2px;
+  margin: 0px 50px;
+  background-color: black;
+}
+
+.animation {
+  height: 80%;
+  width: calc(60% - 102px);
+  background-color: black;
 }
