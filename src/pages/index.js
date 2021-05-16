@@ -1,18 +1,18 @@
-import { graphql, Link } from "gatsby"
-import React, { useState, useEffect } from 'react'
+// import { graphql, Link } from "gatsby"
+import React from 'react'
 import styled from "styled-components"
 import Layout from "../components/layout"
-import img1 from "../image/1.jpg"
-import img2 from "../image/2.jpg"
-import img3 from "../image/3.jpg"
+// import img1 from "../image/1.jpg"
+// import img2 from "../image/2.jpg"
+// import img3 from "../image/3.jpg"
 
-const BackgroundImg = styled.img`
-  position: relative;
-  width: 50%;
-  height: 70%;
-  right: 0px;
-  object-fit: cover
-`
+// const BackgroundImg = styled.img`
+//   position: relative;
+//   width: 50%;
+//   height: 70%;
+//   right: 0px;
+//   object-fit: cover
+// `
 
 const IntroContainer = styled.div `
   position: relative;
@@ -83,7 +83,7 @@ export default function Home({data}) {
           </IntroText>
           <DivideLine />
           {/* <BackgroundImg src={imgsArray[imgIndex]}></BackgroundImg> */}
-          <Animation>yoyo</Animation>
+          <Animation></Animation>
         </IntroContainer>
       </Layout>
   )
