@@ -1,0 +1,9 @@
+.IntroContainer {
+  position: relative;
+  display: flex;
+  padding-top: 30px;
+  height: 100%;
+  width: 80%;
+  float: right;
+  z-index: -1;
+}

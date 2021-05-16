@@ -2,17 +2,8 @@
 import React from 'react'
 import styled from "styled-components"
 import Layout from "../components/layout"
-// import img1 from "../image/1.jpg"
-// import img2 from "../image/2.jpg"
-// import img3 from "../image/3.jpg"
+import * as indexStyles from "../styles/index.module.css"
 
-// const BackgroundImg = styled.img`
-//   position: relative;
-//   width: 50%;
-//   height: 70%;
-//   right: 0px;
-//   object-fit: cover
-// `
 
 const IntroContainer = styled.div `
   position: relative;
@@ -50,7 +41,7 @@ const Animation = styled.div `
   background-color: black;
 `
 
-export default function Home({data}) {
+export default function Home() {
   // const [slide, setSlide] = useState(true)
   // const [imgIndex, setImageIndex] = useState(0)
   // const imgsArray = [img1, img2, img3]
@@ -75,17 +66,17 @@ export default function Home({data}) {
 
 
   return (
-      <Layout>
-        <IntroContainer>
-          <IntroText>
-            <Title>獨立設計人</Title>
-            <Paragraph>Web design 網頁設計規劃<br/>Architecture 建築設計規劃<br/>Interior Design 室內設計規劃<br/></Paragraph>
-          </IntroText>
-          <DivideLine />
-          {/* <BackgroundImg src={imgsArray[imgIndex]}></BackgroundImg> */}
-          <Animation></Animation>
-        </IntroContainer>
-      </Layout>
+    <Layout>
+      <div className={indexStyles.IntroContainer}>
+        <IntroText>
+          <Title>獨立設計人</Title>
+          <Paragraph>Web design 網頁設計規劃<br/>Architecture 建築設計規劃<br/>Interior Design 室內設計規劃<br/></Paragraph>
+        </IntroText>
+        <DivideLine />
+        {/* <BackgroundImg src={imgsArray[imgIndex]}></BackgroundImg> */}
+        <Animation></Animation>
+      </div>
+    </Layout>
   )
 }
 
