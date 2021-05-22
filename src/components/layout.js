@@ -1,11 +1,39 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import { useLocation } from "@reach/router"
+// import { useLocation } from "@reach/router"
 import "../styles/layout.scss"
+import styled from "styled-components";
+import { WaveLoading } from 'react-loadingg';
+
+const SideBar = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
+  width: 10px;
+  border-right: 2px solid black;
+  background-color: transparent;
+  z-index: 1;
+  transition: 1s width, 1s border-right, 1s background-color;
+
+  &:hover {
+    width: 130px;
+    background-color: gray;
+    border-right: none;
+  }
+
+  &:nth-child(2) {
+    top: 100px;
+  }
+
+  &:nth-child(3) {
+    top: 200px;
+  }
+`
 
 export default function Layout({children}) {
-	const path = useLocation().pathname
-	console.log(path)
+	// const path = useLocation().pathname
 	const [showSidebar, setShowSidebar] = useState({1: false, 2:false})
 	const [time, setTime] = useState(null)
 
@@ -26,33 +54,39 @@ export default function Layout({children}) {
 		setShowSidebar(newState)
 	}
 
-	return (
-		<div className="Wrapper">
-			{/* header */}
-			<div className="Header">
-				<Link to="/"><span className="HeaderTitle">IAN'S BLOG</span></Link>
-				<span className="Clock">{time}</span>
+	if(!time) {
+		return <WaveLoading color="black"/>
+	}
+
+	if(time) {
+		return (
+			<div className="Wrapper">
+				{/* header */}
+				<div className="Header">
+					<Link to="/"><span className="HeaderTitle">IAN'S BLOG</span></Link>
+					<span className="Clock">{time}</span>
+				</div>
+				{/* sidebar */}
+				<SideBar onMouseOver={() => handleSidebarOnMouseOver(1, true)} onMouseLeave={() => handleSidebarOnMouseOver(1, false)}>
+					{showSidebar[1] && (
+						<><Link to="/projects"><h5 className="SidebarLink">Projects</h5></Link></>
+					)}
+				</SideBar>
+				<SideBar onMouseOver={() => handleSidebarOnMouseOver(2, true)} onMouseLeave={() => handleSidebarOnMouseOver(2, false)}>
+					{showSidebar[2] && (
+						<><Link to="/blogs"><h5 className="SidebarLink">Blog</h5></Link></>
+					)}
+				</SideBar>
+				{/* container */}
+				{/* {(path === "/" || path === "/blogs" || path === "/projects") ? 
+					<div className="Container">{children}</div> : <div className="BlogContainer">{children}</div>
+				} */}
+				{children}
+				{/* footer */}
+				<footer className="Footer">
+					<marquee className="Marquee" direction="left" height="30" scrollamount="5">勤洗手，多漱口。口罩戴好，我們一起守護台灣。</marquee>
+				</footer>
 			</div>
-			{/* sidebar */}
-			<div className="SideBar" onMouseOver={() => handleSidebarOnMouseOver(1, true)} onMouseLeave={() => handleSidebarOnMouseOver(1, false)}>
-				{showSidebar[1] && (
-					<><Link to="/projects"><h5 className="SidebarLink">Projects</h5></Link></>
-				)}
-			</div>
-			<div className="SideBar" onMouseOver={() => handleSidebarOnMouseOver(2, true)} onMouseLeave={() => handleSidebarOnMouseOver(2, false)}>
-				{showSidebar[2] && (
-					<><Link to="/blogs"><h5 className="SidebarLink">Blog</h5></Link></>
-				)}
-			</div>
-			{/* container */}
-			{/* {(path === "/" || path === "/blogs" || path === "/projects") ? 
-				<div className="Container">{children}</div> : <div className="BlogContainer">{children}</div>
-			} */}
-			{children}
-			{/* footer */}
-			<footer className="Footer">
-				<marquee className="Marquee" direction="left" height="30" scrollamount="5">勤洗手，多漱口。口罩戴好，我們一起守護台灣。</marquee>
-			</footer>
-		</div>
-	)
+		)
+	}
 }
