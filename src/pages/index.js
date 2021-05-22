@@ -66,15 +66,18 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className={indexStyles.introContainer}>
-        <div className={indexStyles.IntroText}>
-          <h3 className={indexStyles.title}>獨立設計人</h3>
-          <p className={indexStyles.paragraph}>Web design 網頁設計規劃<br/>Architecture 建築設計規劃<br/>Interior Design 室內設計規劃<br/></p>
+      <div className={indexStyles.Wrapper}>
+        <div className={indexStyles.introContainer}>
+          <div className={indexStyles.IntroText}>
+            <h3 className={indexStyles.title}>獨立設計人</h3>
+            <p className={indexStyles.paragraph}>Web design 網頁設計規劃<br/>Architecture 建築設計規劃<br/>Interior Design 室內設計規劃<br/></p>
+          </div>
+          <div className={indexStyles.devideLine} />
+          {/* <BackgroundImg src={imgsArray[imgIndex]}></BackgroundImg> */}
+          <div className={indexStyles.animation}></div>
         </div>
-        <div className={indexStyles.devideLine} />
-        {/* <BackgroundImg src={imgsArray[imgIndex]}></BackgroundImg> */}
-        <div className={indexStyles.animation}></div>
       </div>
+
     </Layout>
   )
 }

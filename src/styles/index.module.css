@@ -1,11 +1,16 @@
+.Wrapper {
+  height: calc(100% - 30px);
+  width: 80%;
+  margin-left: 20%;
+  padding-top: 50px;
+  z-index: -1;
+}
+
 .introContainer {
   position: relative;
   display: flex;
-  padding-top: 30px;
   height: 100%;
-  width: 80%;
-  float: right;
-  z-index: -1;
+  padding-top: 50px;
 }
 
 .introText {
