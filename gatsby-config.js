@@ -19,6 +19,11 @@ module.exports = {
         path: `${__dirname}/src`,
       }
     },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {},
+    },
     "gatsby-transformer-remark",
+    "gatsby-plugin-sass"
   ],
 }

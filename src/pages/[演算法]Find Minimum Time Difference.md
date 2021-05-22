@@ -1,5 +1,5 @@
 ---
-title: "[演算法]-Find Minimum Time Difference"
+title: "[演算法]Find Minimum Time Difference"
 date: "2020-5-20"
 ---
 
