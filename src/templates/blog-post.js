@@ -5,13 +5,15 @@ import Layout from "../components/layout"
 
 const Container = styled.div `
 	position: relative;
+	display: block;
 	width: 70%;
 	border: solid 0px;
-	margin: 30px auto;
+	margin: 0 auto;
+	padding-top: 50px;
 `
 
 const Title = styled.h3 `
-	margin-bottom: 30px;
+	margin: 30px 0px;
 `
 
 const TopButton = styled.button `
