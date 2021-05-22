@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 // import { useLocation } from "@reach/router"
-import "../styles/layout.scss"
 import styled from "styled-components";
+import "../styles/layout.scss"
 import { WaveLoading } from 'react-loadingg';
 
 const SideBar = styled.div`

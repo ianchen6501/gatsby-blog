@@ -70,8 +70,9 @@
 
 .Container {
   position: relative;
-  height: initial;
+  height: calc(100% - 30px);
   width: 100%;
+  padding-top: 50px;
 }
 
 .BlogContainer {
@@ -80,8 +81,4 @@
 
 .Marquee {
   height: 100%;
-}
-
-.Loading {
-  color: black;
 }
