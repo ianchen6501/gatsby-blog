@@ -8,9 +8,10 @@ import hittheroadImg from "../image/hittheroad3.png"
 
 const Wrapper = styled.div `
   position: relative;
-  height: 100%;
+  height: calc(100% - 30px);
   width: 80%;
-  float: right;
+  margin: 0 auto;
+  padding-top: 50px;
 `
 
 const Title = styled.h1 `
