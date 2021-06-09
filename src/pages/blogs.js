@@ -58,8 +58,12 @@ export default function Home({data}) {
 }
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
+  query ($skip: Int, $limit: Int) {
+    allMarkdownRemark(
+      sort: {order: DESC, fields: frontmatter___date}
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           id
