@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const Wrapper = styled.div `
   position: relative;
-  height: calc(100% - 30px);
+  // height: calc(100% - 30px);
   width: 80%;
   margin: 0 auto;
   padding-top: 50px;

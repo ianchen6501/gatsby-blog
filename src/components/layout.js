@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-// import { useLocation } from "@reach/router"
 import styled from "styled-components";
 import "../styles/layout.scss"
 import { WaveLoading } from 'react-loadingg';
@@ -33,10 +32,10 @@ const SideBar = styled.div`
 `
 
 export default function Layout({children}) {
-	// const path = useLocation().pathname
 	const [showSidebar, setShowSidebar] = useState({1: false, 2:false})
 	const [time, setTime] = useState(null)
 
+	// Clock
 	useEffect(() => {
 		setTimeout(() => {
 			const date = new Date()
@@ -48,6 +47,7 @@ export default function Layout({children}) {
 		}, 1000)
 	}, [time])
 
+	// sidebar
 	function handleSidebarOnMouseOver(index, state) {
 		const newState = Object.assign(showSidebar)
 		newState[index] = state
@@ -74,7 +74,7 @@ export default function Layout({children}) {
 				</SideBar>
 				<SideBar onMouseOver={() => handleSidebarOnMouseOver(2, true)} onMouseLeave={() => handleSidebarOnMouseOver(2, false)}>
 					{showSidebar[2] && (
-						<><Link to="/blogs"><h5 className="SidebarLink">Blog</h5></Link></>
+						<><Link to="/blog-list"><h5 className="SidebarLink">Blog</h5></Link></>
 					)}
 				</SideBar>
 				{/* container */}
@@ -83,7 +83,7 @@ export default function Layout({children}) {
 				} */}
 				{children}
 				{/* footer */}
-				<footer className="Footer">
+				<footer className="footer">
 					<marquee className="Marquee" direction="left" height="30" scrollamount="5">勤洗手，多漱口。口罩戴好，我們一起守護台灣。</marquee>
 				</footer>
 			</div>
