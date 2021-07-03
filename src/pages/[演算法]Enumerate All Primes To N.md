@@ -1,6 +1,6 @@
 ---
 title: "[演算法]Enumerate All Primes To N"
-date: "2020-07-03"
+date: "2021-07-03"
 ---
 
 ### 題目

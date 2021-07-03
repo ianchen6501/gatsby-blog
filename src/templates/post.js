@@ -4,13 +4,13 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Link from 'gatsby-link'
 
-const NavLink = props => {
-  if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>
-  } else {
-    return <span>{props.text}</span>
-  }
-}
+// const NavLink = props => {
+//   if (!props.test) {
+//     return <Link to={props.url}>{props.text}</Link>
+//   } else {
+//     return <span>{props.text}</span>
+//   }
+// }
 
 const Container = styled.div `
 	position: relative;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import styled from "styled-components"
 import Layout from "../components/layout"
@@ -8,7 +8,7 @@ const Wrapper = styled.div `
   height: calc(100% - 30px);
   width: 80%;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 100px;
 `
 
 const PostContainer = styled.div `
@@ -55,8 +55,8 @@ const NavLink = props => {
 }
 
 const blogsPage = ({ pageContext }) => {
-  const { group, index, first, last, pageCount } = pageContext
-  const previousUrl = index - 1 == 1 ? '/blog-list' : (index - 1).toString()
+  const { group, index, first, last } = pageContext
+  const previousUrl = index - 1 === 1 ? '/blog-list' : (index - 1).toString()
   const nextUrl = (index + 1).toString()
 
   return (

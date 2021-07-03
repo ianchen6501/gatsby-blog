@@ -1,6 +1,6 @@
 ---
 title: "[演算法] The 3 sum problem"
-date: "2020-6-9"
+date: "2021-06-09"
 ---
 
 ### 題目

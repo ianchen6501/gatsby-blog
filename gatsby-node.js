@@ -23,7 +23,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
   return new Promise((resolve, reject) => {
     graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: {order: DESC, fields: frontmatter___date}
+      ) {
         edges {
           node {
             fields {
@@ -44,7 +46,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
         edges: result.data.allMarkdownRemark.edges,
         createPage: createPage,
         pageTemplate: 'src/templates/blogs_template.js',
-        pageLength: 7, // This is optional and defaults to 10 if not used
+        pageLength: 6, // This is optional and defaults to 10 if not used
         pathPrefix: 'blog-list', // This is optional and defaults to an empty string if not used
         context: {}, // This is optional and defaults to an empty object if not used
       })

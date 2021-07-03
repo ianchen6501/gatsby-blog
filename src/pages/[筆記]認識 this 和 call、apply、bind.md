@@ -1,6 +1,6 @@
 ---
 title: "[筆記]認識 this 和 call、apply、bind"
-date: "2020-5-2"
+date: "2021-05-02"
 ---
 
 # 認識 this 及相關的 JavaScript method (call、apply、bind)
