@@ -39,3 +39,12 @@
   width: calc(60% - 102px);
   background-color: black;
 }
+
+.urls {
+  display: flex;
+  flex-direction: column;
+}
+
+.urls > a:hover {
+  color: aqua;
+}
