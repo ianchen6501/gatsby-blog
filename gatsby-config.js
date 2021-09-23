@@ -6,18 +6,22 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Ian's blog",
+  },
+  pathPrefix: "/gatsby-blog",
   plugins: [
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: "src/utils/typography"
-      }
+        pathToConfigModule: "src/utils/typography",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src`,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,

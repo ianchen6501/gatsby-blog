@@ -6,7 +6,6 @@ import "../styles/index-animation.scss"
 
 
 export default function Home() {
-
   return (
     <Layout>
       <div className={indexStyles.Wrapper}>
