@@ -41,7 +41,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
       }
     }
     `).then(result => {
-      console.log("[DEBUG: result.data.allMarkdownRemark.edges]", result.data.allMarkdownRemark.edges)
       createPaginatedPages({
         edges: result.data.allMarkdownRemark.edges,
         createPage: createPage,

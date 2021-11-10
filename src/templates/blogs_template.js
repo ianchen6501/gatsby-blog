@@ -40,6 +40,7 @@ const PaginatorContainer = styled.div`
 const PaginatorLink = styled.div`
   display: inline-block;
   font-size: 20px;
+  padding: 0 10px 0 10px;
 
   ${prop => prop.$disalbe && `color: #aaaaaa`}
 `
@@ -58,14 +59,19 @@ const NavLink = props => {
 }
 
 const blogsPage = ({ pageContext }) => {
-  const { group, index, first, last } = pageContext
+  const { group, index, first, last, pageCount } = pageContext
+  console.log("[DEBUG] pageContext", pageContext)
   const previousUrl = index - 1 === 1 ? "/blog-list" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+  const pagesArray = []
+  for (let i = 1; i <= pageCount; i++) {
+    pagesArray.push(i)
+  }
 
   return (
     <Layout>
       <Wrapper>
-        {group.map(({ node, index }) => (
+        {group.map(({ node }) => (
           <PostContainer key={node.fields.slug}>
             <div>
               <Link to={node.fields.slug}>
@@ -78,6 +84,17 @@ const blogsPage = ({ pageContext }) => {
         ))}
         <PaginatorContainer>
           <NavLink test={first} url={previousUrl} text="PREV" />
+          {pagesArray.map(pageNumber => {
+            return (
+              <NavLink
+                test={pageNumber === index ? true : false}
+                text={pageNumber.toString()}
+                url={
+                  pageNumber === 1 ? `/blog-list` : `/blog-list/${pageNumber}`
+                }
+              />
+            )
+          })}
           <NavLink test={last} url={nextUrl} text="NEXT" />
         </PaginatorContainer>
       </Wrapper>
