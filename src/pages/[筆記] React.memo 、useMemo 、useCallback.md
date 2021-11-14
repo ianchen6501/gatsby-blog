@@ -1,6 +1,7 @@
 ---
 title: "[筆記]React.memo 、useMemo 、useCallback"
 date: "2021-05-01"
+category: "notes"
 ---
 
 ### re-render 時機及效能優化

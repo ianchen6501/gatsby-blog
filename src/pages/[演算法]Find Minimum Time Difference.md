@@ -1,6 +1,7 @@
 ---
 title: "[演算法]Find Minimum Time Difference"
 date: "2021-05-20"
+category: "algorythm"
 ---
 
 ### 題目

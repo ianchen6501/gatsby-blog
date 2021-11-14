@@ -1,6 +1,7 @@
 ---
 title: "[筆記]認識 this 和 call、apply、bind"
 date: "2021-05-02"
+category: "notes"
 ---
 
 # 認識 this 及相關的 JavaScript method (call、apply、bind)

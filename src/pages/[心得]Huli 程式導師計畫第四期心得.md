@@ -1,6 +1,7 @@
 ---
 title: "[心得]Huli 程式導師計畫第四期心得"
 date: "2021-05-23"
+category: "thinkings"
 ---
 
 ### 事情是如何開始的

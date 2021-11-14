@@ -46,7 +46,6 @@ const TopButton = styled.button`
 export default function Post({ data }) {
   const post = data.markdownRemark
   const [show, setShow] = useState(false)
-  console.log(post.html)
 
   useEffect(() => {
     window.onscroll = () => {

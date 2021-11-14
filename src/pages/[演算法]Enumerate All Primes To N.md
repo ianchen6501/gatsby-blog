@@ -1,6 +1,7 @@
 ---
 title: "[演算法]Enumerate All Primes To N"
 date: "2021-07-03"
+category: "algorythm"
 ---
 
 ### 題目

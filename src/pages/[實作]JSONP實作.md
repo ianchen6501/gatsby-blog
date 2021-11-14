@@ -1,6 +1,7 @@
 ---
 title: "[實作]JSONP 實作"
 date: "2021-05-03"
+category: "implementation"
 ---
 
 ### 為什麼需要 JSONP

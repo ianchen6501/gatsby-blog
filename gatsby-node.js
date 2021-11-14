@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const createPaginatedPages = require('gatsby-paginate')
+const createPaginatedPages = require("gatsby-paginate")
 
 exports.onCreateNode = ({ node }) => {
   console.log(`Node created of type "${node.internal.type}"`)
@@ -9,7 +9,8 @@ exports.onCreateNode = ({ node }) => {
 //create node for blog
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) { //create node for .md file 
+  if (node.internal.type === `MarkdownRemark`) {
+    //create node for .md file
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -22,37 +23,63 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions: { createPage } }) => {
   return new Promise((resolve, reject) => {
     graphql(`
-    {
-      allMarkdownRemark(
-        sort: {order: DESC, fields: frontmatter___date}
-      ) {
-        edges {
-          node {
-            fields {
-              slug
+      {
+        allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                date
+                title
+                category
+              }
+              excerpt
             }
-            frontmatter {
-              date
-              title
-            }
-            excerpt
           }
         }
       }
-    }
     `).then(result => {
+      if (result.error) {
+        console.error(error)
+      }
+
       createPaginatedPages({
         edges: result.data.allMarkdownRemark.edges,
         createPage: createPage,
-        pageTemplate: 'src/templates/blogs_template.js',
+        pageTemplate: "src/templates/blogs_template.js",
         pageLength: 6, // This is optional and defaults to 10 if not used
-        pathPrefix: 'blog-list', // This is optional and defaults to an empty string if not used
+        pathPrefix: `blogs-list`, // This is optional and defaults to an empty string if not used
         context: {}, // This is optional and defaults to an empty object if not used
       })
+
+      //filter result
+      // const filters = ["algorythm", "notes", "implementation", "thinkings"]
+
+      // function filterResult(result, filter) {
+      //   return result.filter(node => {
+      //     if (node.node.frontmatter.category === filter) {
+      //       return node
+      //     }
+      //   })
+      // }
+
+      // filters.forEach(filter => {
+      //   createPaginatedPages({
+      //     edges: filterResult(result.data.allMarkdownRemark.edges, filter),
+      //     createPage: createPage,
+      //     pageTemplate: "src/templates/blogs_template.js",
+      //     pageLength: 6,
+      //     pathPrefix: `blogs-list-filter/${filter}`,
+      //     context: {},
+      //   })
+      // })
+
       result.data.allMarkdownRemark.edges.map(({ node }) => {
         createPage({
           path: node.fields.slug,
-          component: path.resolve('./src/templates/post.js'),
+          component: path.resolve("./src/templates/post.js"),
           context: {
             slug: node.fields.slug,
           },

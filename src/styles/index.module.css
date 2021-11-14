@@ -1,6 +1,6 @@
 .Wrapper {
   display: block;
-  height: calc(100% - 30px);
+  height: 100%;
   width: 80%;
   margin: 0 auto;
   padding-top: 50px;
