@@ -50,31 +50,31 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
         createPage: createPage,
         pageTemplate: "src/templates/blogs_template.js",
         pageLength: 6, // This is optional and defaults to 10 if not used
-        pathPrefix: `blogs-list`, // This is optional and defaults to an empty string if not used
+        pathPrefix: `blogs-list/all`, // This is optional and defaults to an empty string if not used
         context: {}, // This is optional and defaults to an empty object if not used
       })
 
-      //filter result
-      // const filters = ["algorythm", "notes", "implementation", "thinkings"]
+      const filtersMap = {
+        algorythm: "演算法",
+        notes: "筆記",
+        implementation: "實作",
+        thinkings: "心得",
+      }
 
-      // function filterResult(result, filter) {
-      //   return result.filter(node => {
-      //     if (node.node.frontmatter.category === filter) {
-      //       return node
-      //     }
-      //   })
-      // }
-
-      // filters.forEach(filter => {
-      //   createPaginatedPages({
-      //     edges: filterResult(result.data.allMarkdownRemark.edges, filter),
-      //     createPage: createPage,
-      //     pageTemplate: "src/templates/blogs_template.js",
-      //     pageLength: 6,
-      //     pathPrefix: `blogs-list-filter/${filter}`,
-      //     context: {},
-      //   })
-      // })
+      Object.keys(filtersMap).forEach(filter => {
+        createPaginatedPages({
+          edges: result.data.allMarkdownRemark.edges.filter(node => {
+            if (node.node.frontmatter.category === filter) {
+              return node
+            }
+          }),
+          createPage: createPage,
+          pageTemplate: "src/templates/blogs_template.js",
+          pageLength: 6, // This is optional and defaults to 10 if not used
+          pathPrefix: `blogs-list/${filter}`, // This is optional and defaults to an empty string if not used
+          context: {}, // This is optional and defaults to an empty object if not used
+        })
+      })
 
       result.data.allMarkdownRemark.edges.map(({ node }) => {
         createPage({

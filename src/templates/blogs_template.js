@@ -78,9 +78,9 @@ const FilterLink = styled.a`
 const NavLink = props => {
   if (!props.test) {
     return (
-      <Link to={props.url}>
+      <a href={props.url}>
         <PaginatorLink $disalbe={false}>{props.text}</PaginatorLink>
-      </Link>
+      </a>
     )
   } else {
     return <PaginatorLink $disalbe={true}>{props.text}</PaginatorLink>
@@ -89,13 +89,8 @@ const NavLink = props => {
 
 const blogsPage = ({ pageContext, location }) => {
   const { group, index, first, last, pageCount } = pageContext
-  const previousUrl = index - 1 === 1 ? "/blogs-list" : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
+  let pathName = location.pathname
   const pagesArray = []
-  for (let i = 1; i <= pageCount; i++) {
-    pagesArray.push(i)
-  }
-
   const filtersMap = {
     all: "全部",
     algorythm: "演算法",
@@ -104,19 +99,33 @@ const blogsPage = ({ pageContext, location }) => {
     thinkings: "心得",
   }
 
+  let pathNameArray = pathName.split("/")
+  pathNameArray = pathNameArray.filter(element => {
+    if (element !== "") {
+      return element
+    }
+  })
+
+  if (pathNameArray.length !== 2) {
+    pathNameArray.pop()
+    pathName = `/${pathNameArray.join("/")}`
+  }
+  console.log(pathName)
+  const previousUrl =
+    index - 1 === 1 ? `${pathName}` : `${pathName}/${index - 1}`
+  const nextUrl = `${pathName}/${index + 1}`
+
+  for (let i = 1; i <= pageCount; i++) {
+    pagesArray.push(i)
+  }
+
   return (
     <Layout>
       <Wrapper>
         <FilterContainer>
           {Object.keys(filtersMap).map(filter => (
             <Filter>
-              <FilterLink
-                href={`${
-                  filter.toString() === "all"
-                    ? "/blogs-list"
-                    : `/blogs-list-filter/${filter}`
-                }`}
-              >
+              <FilterLink href={`/blogs-list/${filter}`}>
                 {filtersMap[filter]}
               </FilterLink>
             </Filter>
@@ -141,7 +150,7 @@ const blogsPage = ({ pageContext, location }) => {
                 test={pageNumber === index ? true : false}
                 text={pageNumber.toString()}
                 url={
-                  pageNumber === 1 ? `/blogs-list` : `/blogs-list/${pageNumber}`
+                  pageNumber === 1 ? `${pathName}` : `${pathName}/${pageNumber}`
                 }
               />
             )
