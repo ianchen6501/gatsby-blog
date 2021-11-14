@@ -106,10 +106,16 @@ const blogsPage = ({ pageContext, location }) => {
     }
   })
 
-  if (pathNameArray.length !== 2) {
+  if (Number(pathNameArray[pathNameArray.length - 1])) {
     pathNameArray.pop()
     pathName = `/${pathNameArray.join("/")}`
   }
+
+  let baseUrlArray = JSON.parse(JSON.stringify(pathNameArray))
+  baseUrlArray.pop()
+  const baseUrl = `/${baseUrlArray.join("/")}`
+
+  console.log(baseUrl)
   console.log(pathName)
   const previousUrl =
     index - 1 === 1 ? `${pathName}` : `${pathName}/${index - 1}`
@@ -125,7 +131,7 @@ const blogsPage = ({ pageContext, location }) => {
         <FilterContainer>
           {Object.keys(filtersMap).map(filter => (
             <Filter>
-              <FilterLink href={`/blogs-list/${filter}`}>
+              <FilterLink href={`${baseUrl}/${filter}`}>
                 {filtersMap[filter]}
               </FilterLink>
             </Filter>

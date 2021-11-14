@@ -89,7 +89,7 @@ export default function Layout({ children }) {
         >
           {showSidebar[2] && (
             <>
-              <Link to="/blogs-list">
+              <Link to="/blogs-list/all">
                 <h5 className="SidebarLink">Blog</h5>
               </Link>
             </>
