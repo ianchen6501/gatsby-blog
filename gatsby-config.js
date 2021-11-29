@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     title: "Ian's blog",
   },
-  pathPrefix: "/gatsby-blog",
+  pathPrefix: "",
   plugins: [
     {
       resolve: "gatsby-plugin-typography",
